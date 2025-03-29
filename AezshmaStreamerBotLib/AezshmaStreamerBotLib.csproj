@@ -73,6 +73,12 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs"/>
     <Compile Include="src\AezshmaLib.cs"/>
+    <Compile Include="src\vban\VbanCommandFormat.cs" />
+    <Compile Include="src\vban\VbanSampleRate.cs" />
+    <Compile Include="src\vban\VbanSubProtocol.cs" />
+    <Compile Include="src\vban\VbanPacket.cs" />
+    <Compile Include="src\vban\VbanPacketHeader.cs" />
+    <Compile Include="src\vban\VbanTextCommand.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
