@@ -36,39 +36,33 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="NAudio">
-      <HintPath>..\..\..\..\Apps\streamerbot_dev_instance\NAudio.dll</HintPath>
+      <HintPath>..\..\..\Apps\streamerbot_dev_instance\NAudio.dll</HintPath>
     </Reference>
     <Reference Include="NAudio.Core">
-      <HintPath>..\..\..\..\Apps\streamerbot_dev_instance\NAudio.Core.dll</HintPath>
+      <HintPath>..\..\..\Apps\streamerbot_dev_instance\NAudio.Core.dll</HintPath>
     </Reference>
     <Reference Include="NAudio.Midi">
-      <HintPath>..\..\..\..\Apps\streamerbot_dev_instance\NAudio.Midi.dll</HintPath>
+      <HintPath>..\..\..\Apps\streamerbot_dev_instance\NAudio.Midi.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\..\..\Apps\streamerbot_dev_instance\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\..\Apps\streamerbot_dev_instance\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Streamer.bot.Auth">
-      <HintPath>..\..\..\..\Apps\streamerbot_dev_instance\Streamer.bot.Auth.dll</HintPath>
+      <HintPath>..\..\..\Apps\streamerbot_dev_instance\Streamer.bot.Auth.dll</HintPath>
     </Reference>
     <Reference Include="Streamer.bot.Common">
-      <HintPath>..\..\..\..\Apps\streamerbot_dev_instance\Streamer.bot.Common.dll</HintPath>
+      <HintPath>..\..\..\Apps\streamerbot_dev_instance\Streamer.bot.Common.dll</HintPath>
     </Reference>
     <Reference Include="Streamer.bot.EmoteHandlers">
-      <HintPath>..\..\..\..\Apps\streamerbot_dev_instance\Streamer.bot.EmoteHandlers.dll</HintPath>
+      <HintPath>..\..\..\Apps\streamerbot_dev_instance\Streamer.bot.EmoteHandlers.dll</HintPath>
     </Reference>
     <Reference Include="Streamer.bot.Plugin.Interface">
-      <HintPath>..\..\..\..\Apps\streamerbot_dev_instance\Streamer.bot.Plugin.Interface.dll</HintPath>
+      <HintPath>..\..\..\Apps\streamerbot_dev_instance\Streamer.bot.Plugin.Interface.dll</HintPath>
     </Reference>
     <Reference Include="System"/>
     <Reference Include="System.Core"/>
     <Reference Include="System.Data"/>
     <Reference Include="System.Xml"/>
-    <Reference Include="Twitch.Common">
-      <HintPath>..\..\..\..\Apps\streamerbot_dev_instance\Twitch.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="websocket-sharp">
-      <HintPath>..\..\..\..\Apps\streamerbot_dev_instance\websocket-sharp.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs"/>
