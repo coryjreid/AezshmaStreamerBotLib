@@ -10,13 +10,13 @@ namespace AezshmaStreamerBotLib {
     public static class AezshmaLib {
         private const string DebugMessagePrefix = "[AEZ-DEBUG]";
 
-        public static bool SendVbanTextCommand(CPHInlineBase bot, string ipAddress, string command) {
+        public static bool SendVbanTextCommand(CPHInlineBase bot, string ipAddress, int port, string command) {
             try {
                 Socket s = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
                 IPAddress address = IPAddress.Parse(ipAddress);
 
                 VbanTextCommand vbanTextCommand = new VbanTextCommand(command);
-                IPEndPoint ep = new IPEndPoint(address, 6980);
+                IPEndPoint ep = new IPEndPoint(address, port);
                 s.SendTo(vbanTextCommand.ToBytes(), ep);
 
                 return true;
