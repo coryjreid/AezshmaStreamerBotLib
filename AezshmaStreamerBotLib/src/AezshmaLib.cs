@@ -1,14 +1,43 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using AezshmaStreamerBotLib.vban;
 using Streamer.bot.Plugin.Interface;
+using Streamer.bot.Plugin.Interface.Model;
 
 namespace AezshmaStreamerBotLib {
     public static class AezshmaLib {
         private const string DebugMessagePrefix = "[AEZ-DEBUG]";
+
+        private static readonly Dictionary<Settings, string> SettingNames = new Dictionary<Settings, string> {
+            { Settings.TwitchSetRandomStreamTitle, "aez_StreamSetRandomTitle" },
+            { Settings.TwitchRandomStreamTitleFile, "aez_StreamRandomTitleFile" }
+        };
+
+        private static readonly Random Random = new Random();
+        private static readonly object SyncLock = new object();
+
+        public static bool TwitchSetRandomStreamTitle(CPHInlineBase bot, bool isIncludeDate) {
+            TwitchUserInfoEx userInfoEx = bot.CPH.TwitchGetExtendedUserInfoByLogin("aezshma");
+            string existingTitle = userInfoEx.ChannelTitle;
+            string[] titles = File.ReadAllLines(bot.CPH.GetGlobalVar<string>(SettingNames[Settings.TwitchRandomStreamTitleFile]));
+
+            string title;
+            do {
+                lock (SyncLock) {
+                    title = titles[Random.Next(0, titles.Length)];
+                }
+            } while (existingTitle.Contains(title));
+
+            if (isIncludeDate) {
+                title = $"{title} [{DateTime.Now:MM/dd/yyyy}]";
+            }
+
+            return bot.CPH.SetChannelTitle(title);
+        }
 
         public static bool SendVbanTextCommand(CPHInlineBase bot, string ipAddress, int port, string command) {
             try {
@@ -84,6 +113,11 @@ namespace AezshmaStreamerBotLib {
             }
 
             return false;
+        }
+
+        private enum Settings {
+            TwitchSetRandomStreamTitle,
+            TwitchRandomStreamTitleFile
         }
     }
 }

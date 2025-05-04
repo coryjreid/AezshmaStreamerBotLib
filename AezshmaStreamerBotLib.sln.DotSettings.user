@@ -5,8 +5,11 @@
 	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005Ccjrco_005CApps_005Cstreamerbot_005Fdev_005Finstance_005CNewtonsoft_002EJson_002Edll/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005Ccjrco_005CApps_005Cstreamerbot_005Fdev_005Finstance_005CStreamer_002Ebot_002EAuth_002Edll/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005Ccjrco_005CApps_005Cstreamerbot_005Fdev_005Finstance_005CStreamer_002Ebot_002ECommon_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005Ccjrco_005CApps_005Cstreamerbot_005Fdev_005Finstance_005CStreamer_002Ebot_002EElgato_002Edll/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005Ccjrco_005CApps_005Cstreamerbot_005Fdev_005Finstance_005CStreamer_002Ebot_002EEmoteHandlers_002Edll/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005Ccjrco_005CApps_005Cstreamerbot_005Fdev_005Finstance_005CStreamer_002Ebot_002EPlugin_002EInterface_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005Ccjrco_005CApps_005Cstreamerbot_005Fdev_005Finstance_005CTwitch_002EClientApi_002Edll/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/AddReferences/RecentPaths/=C_003A_005CUsers_005Ccjrco_005CApps_005Cstreamerbot_005Fdev_005Finstance_005CTwitch_002ECommon_002Edll/@EntryIndexedValue">True</s:Boolean>
 	<s:String x:Key="/Default/CodeInspection/PencilsConfiguration/ActualSeverity/@EntryValue">INFO</s:String>
 	<s:String x:Key="/Default/CodeInspection/PencilsConfiguration/FiltersState/=CodeStyle/@EntryIndexedValue">On</s:String>
 	<s:String x:Key="/Default/CodeInspection/PencilsConfiguration/FiltersState/=NamingFilter/@EntryIndexedValue">On</s:String>
