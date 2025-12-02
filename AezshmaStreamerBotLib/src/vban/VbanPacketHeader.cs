@@ -5,7 +5,7 @@ using System.Text;
 
 namespace AezshmaStreamerBotLib.vban {
     public class VbanPacketHeader {
-        private const int SizeBytes = 28;
+        public const int SizeBytes = 28;
         private const int StreamNameSizeBytes = 16;
         private readonly byte[] _prefix = Encoding.UTF8.GetBytes("VBAN");
         private readonly byte _sampleRateOrSubProtocol;
@@ -47,8 +47,48 @@ namespace AezshmaStreamerBotLib.vban {
             return data.ToArray();
         }
 
-        public static Builder builder() {
+        public static Builder CreateBuilder() {
             return new Builder();
+        }
+
+        public static VbanPacketHeader FromBytes(byte[] data) {
+            if (data == null || data.Length < SizeBytes) {
+                throw new ArgumentException($"Data must be at least {SizeBytes} bytes");
+            }
+
+            // Verify VBAN prefix
+            byte[] prefix = new byte[4];
+            Array.Copy(data, 0, prefix, 0, 4);
+            if (Encoding.UTF8.GetString(prefix) != "VBAN") {
+                throw new ArgumentException("Invalid VBAN packet - missing VBAN prefix");
+            }
+
+            // Parse header fields
+            byte sampleRateOrSubProtocol = data[4];
+            byte samplesPerFrame = data[5];
+            byte channelCount = data[6];
+            byte dataFormatOrCodec = data[7];
+
+            // Extract stream name (16 bytes starting at offset 8)
+            byte[] streamName = new byte[StreamNameSizeBytes];
+            Array.Copy(data, 8, streamName, 0, StreamNameSizeBytes);
+
+            // Trim null bytes from stream name
+            int nameLength = Array.IndexOf(streamName, (byte)0);
+            if (nameLength >= 0) {
+                Array.Resize(ref streamName, nameLength);
+            }
+
+            // Parse frame count (4 bytes at offset 24)
+            int frameCount = BitConverter.ToInt32(data, 24);
+
+            return new VbanPacketHeader(
+                sampleRateOrSubProtocol,
+                samplesPerFrame,
+                channelCount,
+                dataFormatOrCodec,
+                streamName,
+                frameCount);
         }
 
         public class Builder {

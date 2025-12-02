@@ -39,19 +39,30 @@ namespace AezshmaStreamerBotLib {
             return bot.CPH.SetChannelTitle(title);
         }
 
-        public static bool SendVbanTextCommand(CPHInlineBase bot, string ipAddress, int port, string command) {
+        public static bool SendVbanCommand(CPHInlineBase bot, string ipAddress, int port, string command) {
+            VbanClient client = new VbanClient(ipAddress, port);
             try {
-                Socket s = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
-                IPAddress address = IPAddress.Parse(ipAddress);
-
-                VbanTextCommand vbanTextCommand = new VbanTextCommand(command);
-                IPEndPoint ep = new IPEndPoint(address, port);
-                s.SendTo(vbanTextCommand.ToBytes(), ep);
-
+                client.SendCommand(new VbanTextCommand(command));
                 return true;
             } catch (Exception exception) {
                 bot.CPH.LogError($"{DebugMessagePrefix} {exception.Message}");
                 return false;
+            } finally {
+                client.Dispose();
+            }
+        }
+
+        public static string SendVbanCommandWithResponse(CPHInlineBase bot, string ipAddress, int port, string command) {
+            VbanClient client = new VbanClient(ipAddress, port);
+            try {
+                byte[] responseBytes = client.SendCommand(new VbanTextCommand(command));
+                VbanTextCommand response = (VbanTextCommand)VbanPacket.FromBytes(responseBytes);
+                return response.GetCommandText();
+            } catch (Exception exception) {
+                bot.CPH.LogError($"{DebugMessagePrefix} {exception.Message}");
+                return null;
+            } finally {
+                client.Dispose();
             }
         }
 

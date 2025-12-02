@@ -1,7 +1,0 @@
-﻿<component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Build &amp; Deploy &amp; Test" type="CAKE_CONFIGURATION" factoryName="Cake configuration factory">
-    <option name="additionalArguments" value="--streamerbotFolder=$USER_HOME$/Apps/streamerbot_dev_instance" />
-    <option name="taskName" value="RunStreamerBot" />
-    <method v="2" />
-  </configuration>
-</component>
